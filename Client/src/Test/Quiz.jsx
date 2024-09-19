@@ -2,19 +2,27 @@ import React, { useEffect , useState } from 'react'
 import "../styles/Quiz.css"
 import data from '../Database/question_data'
 
-
+// redux store import
+import {useSelector} from 'react-redux'
 
 export default function  Quiz() {
     const [checked,setChechked]= useState(undefined);
 
     const question = data[0]
 
+
     useEffect(()=>{
-        console.log(question)
+       console.log(question)
     })
     function  onSelect(){
-        console.log("Selected")
+       // console.log("Selected")
     }
+
+    const state=  useSelector(state => state )
+
+    useEffect(()=>{
+        console.log(state)
+    })
     // prev btn handle
     function onPrev(){
         console.log('On onPrev click')
@@ -39,10 +47,10 @@ export default function  Quiz() {
                             <input type="radio"
                             value={false}
                             name='option'
-                            id={'q${i}-option'}
+                            id={`q${i}-option`}
                             onChange={onSelect()} 
                             />
-                            <label className='text' htmlFor='q${i}-option'>{q}</label>
+                            <label className='text' htmlFor={`q${i}-option`}>{q}</label>
                             <div className='check'></div>
                         </li>
                     ))
