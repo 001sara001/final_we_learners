@@ -29,12 +29,14 @@ export const loginUser = async (req, res) => {
         }
 
         const token = generateToken(user);
-        res.status(200).json({ message: "Login successful", token });
+        // Send token and user data in the response
+        res.status(200).json({ message: "Login successful", token, user });
     } catch (e) {
         console.error('Login Error:' , e);
         res.status(500).json({ error: 'Failed to login'});
-    }
+    }
 };
+
 
 // register user 
 export const registerUser = async (req, res) => {

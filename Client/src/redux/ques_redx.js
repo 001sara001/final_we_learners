@@ -3,7 +3,7 @@ import { answers } from "../Database/question_data"
 
 // create reducer
 export const questionReducer= createSlice({
-    name : 'question',
+    name : 'questions',
     initialState:{
         queue:[],
         answers: [],
@@ -12,12 +12,24 @@ export const questionReducer= createSlice({
     reducers:{
         startExamAction : (state , action)=>{
             return {
-                state , 
+                ...state , 
                 queue: action.payload
+            }
+        },
+        moveNextAction: (state,action)=>{
+            return {
+                ...state,
+                trace : state.trace +1,
+            }
+        },
+        movePrevAction: (state,action)=>{
+            return {
+                ...state,
+                trace : state.trace -1,
             }
         }
     }
 })
-export const {startExamAction} = questionReducer.actions
+export const {startExamAction , moveNextAction, movePrevAction} = questionReducer.actions
 
 export default questionReducer.reducer

@@ -1,11 +1,6 @@
 import React, { useState } from "react";
 import "../styles/Register.css";
-import {
-  IoCloseOutline,
-  IoPersonOutline,
-  IoMailOutline,
-  IoLockClosedOutline,
-} from "react-icons/io5";
+import { IoCloseOutline, IoPersonOutline, IoMailOutline, IoLockClosedOutline } from "react-icons/io5";
 import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import upload from "../utils/upload";
@@ -18,7 +13,7 @@ export default function Register() {
     name: '',
     email: '',
     password: '',
-    picture: '' // Changed from 'pictur' to 'picture'
+    picture: ''
   });
 
   const handleFileInput = async (e) => {
@@ -45,9 +40,12 @@ export default function Register() {
         throw new Error(message);
       }
 
+      // Save user data to localStorage
+      localStorage.setItem('userData', JSON.stringify({ ...data, picture: data.picture }));
+
       setLoading(false);
       navigate('/login');
-      
+
     } catch (e) {
       console.log(e.message);
       setLoading(false);
@@ -76,7 +74,7 @@ export default function Register() {
               />
               <label>UserName</label>
             </div>
-           
+
             <div className="input-box">
               <span className="icon">
                 <IoMailOutline />

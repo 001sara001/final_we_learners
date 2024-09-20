@@ -1,13 +1,11 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { IoCloseOutline, IoMailOutline, IoLockClosedOutline } from "react-icons/io5";
 import "../styles/Login.css";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
-// import { authContext } from '../context/AuthContext.jsx'; // Uncomment if using auth context
 
 export default function Login() {
   const navigate = useNavigate();
-  // const { dispatch } = useContext(authContext); // Uncomment if using auth context
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -27,25 +25,19 @@ export default function Login() {
       // Send login request to the backend
       const res = await axios.post("http://localhost:8000/auth/login", data);
 
-      // Extract token from response
-      const { token, message } = res.data;
+      // Extract token and user data from response
+      const { token, user } = res.data; // Ensure your backend sends user data
 
       // Check if response status is 200 (successful login)
       if (res.status === 200 && token) {
-        // Save token to local storage
+        // Save token and user data to local storage
         localStorage.setItem('token', token);
-
-        // Dispatch login success action (if using context)
-        // Uncomment the lines below if using auth context
-        // dispatch({
-        //   type: 'LOGIN_SUCCESS',
-        //   payload: { token },
-        // });
+        localStorage.setItem('userData', JSON.stringify(user)); // Save user data
 
         // Navigate to the home page
         navigate('/');
       } else {
-        throw new Error(message || 'Login failed. Please try again.');
+        throw new Error('Login failed. Please try again.');
       }
     } catch (e) {
       // Capture and display the error message

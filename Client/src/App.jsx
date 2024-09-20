@@ -12,6 +12,7 @@ import MenuCard from "./layouts/MenuCard";
 import LearnMore from "./LearnMore/LearnMore";
 import Quiz from "./Test/Quiz"
 import Result from "./Test/Result";
+import Profile from "./profile/profile";
 
 
 const App = () => {
@@ -31,6 +32,7 @@ const App = () => {
             <Route element={<EnrollNow />} path="/enroll-now" />
             <Route element={<WelcomePage />} path="/welcomePage" /> 
             <Route element={<LearnMore />} path="/learn-more" />
+            <Route path="/profile" element={<Profile />} />
           </Routes>
         </main>
         <Footer />
