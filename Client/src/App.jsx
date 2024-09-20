@@ -11,7 +11,8 @@ import MenuCard from "./layouts/MenuCard";
 import LearnMore from "./LearnMore/LearnMore";
 import Quiz from "./Test/Quiz";
 import Result from "./Test/Result";
-
+import ContactUsPage from "./ContactUs/ContactUsPage";
+import ThankYouPage from "./ContactUs/ThankYouPage/ThankYouPage";
 const App = () => {
   return (
     <Router>
@@ -40,7 +41,9 @@ const Main = () => {
           <Route path="/MenuCard" element={<MenuCard />} />
           <Route element={<EnrollNow />} path="/enroll-now" />
           <Route element={<WelcomePage />} path="/welcomePage" />
-          <Route element={<LearnMore />} path="/learn-more" />
+          <Route element={<ContactUsPage />} path="/contact" />
+           <Route element={<LearnMore />} path="/learn-more" />
+           <Route element={<ThankYouPage />} path="/thank-you" />
         </Routes>
       </main>
       <Footer />
