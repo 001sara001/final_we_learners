@@ -1,4 +1,3 @@
-import React from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -23,9 +22,9 @@ const App = () => {
 
 const Main = () => {
   const location = useLocation();
-  
-  // Specify the path(s) where you want the Navbar to be displayed
-  const showNavbar = location.pathname === "/navbar"; // Adjust this condition as needed
+
+  // Show Navbar only on the Home page
+  const showNavbar = location.pathname === "/";
 
   return (
     <div>
@@ -42,7 +41,6 @@ const Main = () => {
           <Route element={<EnrollNow />} path="/enroll-now" />
           <Route element={<WelcomePage />} path="/welcomePage" />
           <Route element={<LearnMore />} path="/learn-more" />
-          <Route element={<div>Navbar Page Content</div>} path="/navbar" /> {/* Example for navbar page */}
         </Routes>
       </main>
       <Footer />
