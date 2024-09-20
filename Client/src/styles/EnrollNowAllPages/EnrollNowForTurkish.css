@@ -1,9 +1,9 @@
-styles/EnrollNow.css
+/* styles/EnrollNow.css */
 
 /* General Page Styles */
-.enroll-now-container {
+.enroll-now-for-turkish-container {
     min-height: 100vh;
-    background: linear-gradient(to right, #e0f2f1, #b2dfdb, #80cbc4);
+    background: linear-gradient(to right, rgb(185, 120, 76), rgb(185, 120, 76), #9a6765);
     padding: 2rem;
     display: flex;
     flex-direction: column;
@@ -12,14 +12,14 @@ styles/EnrollNow.css
     gap: 2rem;
   }
   
-  .enroll-now-heading {
+  .enroll-now-for-turkish-heading {
     font-size: 2.5rem; /* 4xl */
     font-weight: bold;
     color: #004d40; /* Teal 800 */
     text-align: center;
   }
   
-  .enroll-now-description {
+  .enroll-now-for-turkish-description {
     font-size: 1.125rem; /* text-lg */
     color: #374151; /* Gray 800 */
     text-align: center;
@@ -27,13 +27,13 @@ styles/EnrollNow.css
   }
   
   /* Button Options */
-  .enroll-now-options {
+  .enroll-now-for-turkish-options {
     display: flex;
     gap: 1rem; /* space-x-4 */
   }
   
-  .enroll-now-button {
-    background-color: #004d40; /* Teal 800 */
+  .enroll-now-for-turkish-button {
+    background-color: #7a4018; /* Teal 800 */
     color: #ffffff; /* White */
     padding: 1rem 2rem; /* py-4 px-6 */
     border-radius: 0.5rem; /* rounded-md */
@@ -44,13 +44,13 @@ styles/EnrollNow.css
     transition: background-color 0.3s ease, transform 0.3s ease;
   }
   
-  .enroll-now-button:hover {
-    background-color: #00332e; /* Teal 900 */
+  .enroll-now-for-turkish-button:hover {
+    background-color: #bc7542; /* Teal 900 */
     transform: scale(1.05); /* scale-105 */
   }
   
-  .enroll-now-button.selected {
-    background-color: #00796b; /* Teal 700 */
+  .enroll-now-for-turkish-button.selected {
+    background-color: #341f10; /* Teal 700 */
   }
   
   /* Feedback Section */
@@ -64,7 +64,7 @@ styles/EnrollNow.css
     height: 100px;
     padding: 1rem; /* p-4 */
     border-radius: 0.5rem; /* rounded-md */
-    border: 1px solid #004d40; /* Teal 800 */
+    border: 1px solid #7a4018; /* Teal 800 */
     resize: none;
     font-size: 1rem; /* text-base */
     color: #374151; /* Gray 800 */
@@ -79,7 +79,7 @@ styles/EnrollNow.css
   
   /* Submit Button */
   .submit-button {
-    background-color: #00897b; /* Teal 600 */
+    background-color: #7a4018; /* Teal 600 */
     color: #ffffff; /* White */
     padding: 1rem 2rem; /* py-4 px-6 */
     border-radius: 0.5rem; /* rounded-md */
@@ -91,12 +91,12 @@ styles/EnrollNow.css
   }
   
   .submit-button:hover {
-    background-color: #00796b; /* Teal 700 */
+    background-color: #bc7542; /* Teal 700 */
     transform: scale(1.05); /* scale-105 */
   }
   
   .submit-button:disabled {
-    background-color: #b2dfdb; /* Disabled Teal 300 */
+    background-color: #3b291d; /* Disabled Teal 300 */
     cursor: not-allowed;
   }
   

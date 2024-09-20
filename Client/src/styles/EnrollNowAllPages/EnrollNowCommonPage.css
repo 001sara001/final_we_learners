@@ -1,0 +1,78 @@
+.learn-more-wrapper {
+    padding-top: 50px; /* Add padding from the top */
+    background: linear-gradient(to bottom, rgba(155, 103, 101, 0.9), rgba(185, 120, 76, 0.9)); /* Darker gradient */
+    min-height: 100vh; /* Full height */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align items to the start */
+}
+
+.learn-more-container {
+    padding: 20px;
+    max-width: 500px; /* Make the container smaller */
+    width: 100%;
+    background: linear-gradient(to right, rgb(185, 120, 76), rgb(185, 120, 76), #9a6765);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Slightly darker shadow for depth */
+}
+
+.learn-more-heading {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #374151; /* Darker text for contrast */
+}
+
+.learn-more-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; /* Spacing between sections */
+}
+
+.section-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; /* Spacing between items */
+}
+
+.section-content {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9); /* Light background for contrast */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+}
+
+.section-title {
+    font-size: 1.5rem; /* Adjust font size */
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #374151; /* Darker text for contrast */
+}
+
+.section-text {
+    margin-bottom: 15px;
+    color: #555; /* Slightly lighter gray */
+}
+
+.learn-more-button {
+    padding: 10px;
+    background-color: #4A90E2; /* Button color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center; /* Center text */
+}
+
+.learn-more-button:hover {
+    background-color: #357ABD; /* Button hover color */
+}
+
+/* Image Styles */
+.section-image {
+    width: 100%;
+    max-width: 300px; /* Adjust as necessary */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
