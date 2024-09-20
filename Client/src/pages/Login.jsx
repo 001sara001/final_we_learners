@@ -35,7 +35,7 @@ export default function Login() {
         localStorage.setItem('userData', JSON.stringify(user)); // Save user data
 
         // Navigate to the home page
-        navigate('/');
+        navigate('/enroll-now');
       } else {
         throw new Error('Login failed. Please try again.');
       }
