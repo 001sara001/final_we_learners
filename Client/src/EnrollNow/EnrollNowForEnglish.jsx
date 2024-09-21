@@ -1,10 +1,11 @@
-// src/pages/EnrollNow.jsx
-import  { useState } from 'react';
-import '../styles/EnrollNowAllPages/EnrollNowForEnglish.css';  // Import the CSS file
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import '../styles/EnrollNowAllPages/EnrollNowForEnglish.css'; // Import the CSS file
 
 const EnrollNowForEnglish = () => {
   const [selectedLevel, setSelectedLevel] = useState('');
   const [feedback, setFeedback] = useState('');
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const handleLevelChange = (level) => {
     setSelectedLevel(level);
@@ -12,8 +13,8 @@ const EnrollNowForEnglish = () => {
 
   const handleSubmit = () => {
     if (selectedLevel) {
-      alert(`Enrolled in ${selectedLevel} level. Feedback: ${feedback}`);
-      // Here you can add logic to handle form submission
+      //alert(`Enrolled in ${selectedLevel} level. Feedback: ${feedback}`);
+      navigate(`/${selectedLevel.toLowerCase()}-page`); // Navigate to the corresponding page
     } else {
       alert('Please select a level before submitting.');
     }

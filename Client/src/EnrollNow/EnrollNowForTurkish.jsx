@@ -1,10 +1,11 @@
-// src/pages/EnrollNowForTurkish.jsx
-import  { useState } from 'react';
-import '../styles/EnrollNowAllPages/EnrollNowForTurkish.css';  // Import the CSS file for Turkish page
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import '../styles/EnrollNowAllPages/EnrollNowForTurkish.css';
 
 const EnrollNowForTurkish = () => {
   const [selectedLevel, setSelectedLevel] = useState('');
   const [feedback, setFeedback] = useState('');
+  const navigate = useNavigate();
 
   const handleLevelChange = (level) => {
     setSelectedLevel(level);
@@ -12,57 +13,43 @@ const EnrollNowForTurkish = () => {
 
   const handleSubmit = () => {
     if (selectedLevel) {
-      alert(`Enrolled in ${selectedLevel} level for Turkish. Feedback: ${feedback}`);
-      // Here you can add logic to handle form submission
+      navigate(`/${selectedLevel.toLowerCase()}-turkish-page`);
     } else {
-      alert('Please select a level before submitting.');
+      alert('Lütfen bir seviye seçin. (Please select a level.)');
     }
   };
 
   return (
     <div className="enroll-now-for-turkish-container">
-      <h1 className="enroll-now-for-turkish-heading">Enrolled in Turkish Course</h1>
+      <h1 className="enroll-now-for-turkish-heading">
+        Türkçe Kursuna Kaydoldunuz. <span style={{ fontSize: 'small' }}>(You have enrolled in the Turkish course.)</span>
+      </h1>
       <p className="enroll-now-for-turkish-description">
-        Choose the level that best suits your needs and let us know how we can improve.
+        İhtiyaçlarınıza en uygun seviyeyi seçin ve nasıl geliştirebileceğimiz hakkında bize bilgi verin. <span style={{ fontSize: 'small' }}>(Choose the level that best suits your needs and let us know how we can help you improve.)</span>
       </p>
 
       <div className="enroll-now-for-turkish-options">
-        <button
-          className={`enroll-now-for-turkish-button ${selectedLevel === 'Easy' ? 'selected' : ''}`}
-          onClick={() => handleLevelChange('Easy')}
-        >
-          Easy
+        <button className={`enroll-now-for-turkish-button ${selectedLevel === 'Easy' ? 'selected' : ''}`} onClick={() => handleLevelChange('Easy')}>
+          Kolay <span style={{ fontSize: 'small' }}>(Easy)</span>
         </button>
-        <button
-          className={`enroll-now-for-turkish-button ${selectedLevel === 'Medium' ? 'selected' : ''}`}
-          onClick={() => handleLevelChange('Medium')}
-        >
-          Medium
+        <button className={`enroll-now-for-turkish-button ${selectedLevel === 'Medium' ? 'selected' : ''}`} onClick={() => handleLevelChange('Medium')}>
+          Orta <span style={{ fontSize: 'small' }}>(Medium)</span>
         </button>
-        <button
-          className={`enroll-now-for-turkish-button ${selectedLevel === 'Advanced' ? 'selected' : ''}`}
-          onClick={() => handleLevelChange('Advanced')}
-        >
-          Advanced
+        <button className={`enroll-now-for-turkish-button ${selectedLevel === 'Advanced' ? 'selected' : ''}`} onClick={() => handleLevelChange('Advanced')}>
+          İleri <span style={{ fontSize: 'small' }}>(Advanced)</span>
         </button>
       </div>
 
       <div className="feedback-section">
-        <textarea
-          className="feedback-textarea"
-          placeholder="Share your feedback or questions here..."
-          value={feedback}
-          onChange={(e) => setFeedback(e.target.value)}
+        <textarea 
+          className="feedback-textarea" 
+          placeholder="Geri bildiriminizi veya sorularınızı burada paylaşın... (Share your feedback or questions here...)" 
+          value={feedback} 
+          onChange={(e) => setFeedback(e.target.value)} 
         />
       </div>
 
-      <button
-        className="submit-button"
-        onClick={handleSubmit}
-        disabled={!selectedLevel}
-      >
-        Submit
-      </button>
+      <button className="submit-button" onClick={handleSubmit} disabled={!selectedLevel}>Gönder <span style={{ fontSize: 'small' }}>(Submit)</span></button>
     </div>
   );
 };

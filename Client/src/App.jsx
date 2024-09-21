@@ -18,7 +18,10 @@ import EnrollNowForBangla from "./EnrollNow/EnrollNowForBangla";
 import EnrollNowForJapanese from "./EnrollNow/EnrollNowForJapanese";
 import EnrollNowForTurkish from "./EnrollNow/EnrollNowForTurkish";
 import EnrollNowForKorean from "./EnrollNow/EnrollNowForKorean";
-
+import EasyPageForEnglish from "./Levels/LevelsForEnglish/EasyPageForEnglish";
+import EasyPageForTurkish from "./Levels/LevelsForTurkish/EasyPageForTurkish";
+import EasyPageForKorean from "./Levels/LevelsForKorean/EasyPageForKOrean";
+import EasyPageForJapanese from "./Levels/LevelsForJapanese/EasyPageForJapanese";
 const App = () => {
   return (
     <Router>
@@ -55,6 +58,15 @@ const Main = () => {
             <Route path="/enroll-now-for-japanese" element={<EnrollNowForJapanese />} />
             <Route path="/enroll-now-for-turkish" element={<EnrollNowForTurkish />} />
              <Route path="/enroll-now-for-korean" element={<EnrollNowForKorean />} />
+             <Route path="/easy-page" element={<EasyPageForEnglish />} />
+             <Route path="/easy-turkish-page" element={<EasyPageForTurkish />} />
+             <Route path="/easy-japanese-page" element={<EasyPageForJapanese />} />
+             <Route path="/easy-korean-page" element={<EasyPageForKorean/>} />
+             {/* <Route path="/easy-page" element={<EasyPage />} />
+             <Route path="/easy-page" element={<EasyPage />} />
+             <Route path="/easy-page" element={<EasyPage />} /> */}
+             {/* <Route path="/medium-page" element={<MediumPage />} />
+             <Route path="/advanced-page" element={<AdvancedPage />} /> */}
         </Routes>
       </main>
       <Footer />

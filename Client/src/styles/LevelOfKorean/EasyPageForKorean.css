@@ -1,0 +1,105 @@
+.easy-page-wrapper {
+    padding-top: 50px;
+    background: linear-gradient(to bottom, rgba(155, 103, 101, 0.9), rgba(185, 120, 76, 0.9));
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.easy-page-container {
+    padding: 20px;
+    max-width: 500px;
+    width: 100%;
+    height: calc(100vh - 100px);
+    background: linear-gradient(to right, rgb(185, 120, 76), rgb(185, 120, 76), #9a6765);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.easy-page-heading {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #374151;
+}
+
+.word-list {
+    list-style-type: none;
+    padding: 0;
+    flex-grow: 1;
+}
+
+.word-item {
+    margin-bottom: 15px;
+}
+
+.word-text {
+    font-weight: bold;
+}
+
+.response-textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    transition: border-color 0.3s;
+}
+
+.response-textarea:focus {
+    border-color: #4A90E2;
+    outline: none;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.pagination-button, .submit-button {
+    padding: 10px 15px;
+    background-color: #4A90E2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 30%;
+}
+
+.pagination-button:hover, .submit-button:hover {
+    background-color: #357ABD;
+}
+
+.submit-button {
+    background-color: #28a745;
+}
+
+.submit-button:hover {
+    background-color: #218838;
+}
+
+.pagination-button:disabled, .submit-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.edit-button {
+    padding: 10px 15px;
+    background-color: #f0ad4e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 30%;
+}
+
+.edit-button:hover {
+    background-color: #ec971f;
+}
