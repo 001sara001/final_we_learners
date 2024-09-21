@@ -14,7 +14,7 @@ const EasyPageForJapanese = () => {
     const fetchWords = async () => {
       try {
         const userId = localStorage.getItem('userId');
-        const response = await fetch(`http://localhost:8000/japanese-words?userId=${userId}&language=jp`);
+        const response = await fetch(`http://localhost:8000/japanese-words?userId=${userId}&language=ja`);
         const data = await response.json();
         setWords(data);
         
@@ -75,15 +75,16 @@ const EasyPageForJapanese = () => {
   return (
     <div className="easy-page-wrapper">
       <div className="easy-page-container">
-        <h1 className="easy-page-heading">覚える言葉 (Words to Learn)</h1>
+        <h1 className="easy-page-heading">学ぶべき言葉 (Words to Learn)</h1>
         <ul className="word-list">
           {currentWords.map((word, index) => (
             <li key={index} className="word-item">
               <span className="word-text">
-                {word.word} 
-                <span className="word-meaning"> (Meaning: {word.meaning})</span> 
-                <span className="word-pronunciation"> [Pronunciation: {word.pronunciation}]</span>
-              </span>
+             {word.word} 
+             <span className="word-meaning"> (Meaning: {word.meaning})</span>
+            <span className="word-pronunciation"> [Pronunciation: {word.pronunciation}]</span>
+            </span>
+
               <textarea
                 className="response-textarea"
                 placeholder="ここに書いてください... (Write here...)"
@@ -95,9 +96,22 @@ const EasyPageForJapanese = () => {
           ))}
         </ul>
 
+        <div className="keyboard-options">
+          {currentWords.map((word, index) => (
+            <button
+              key={index}
+              className="keyboard-button"
+              onClick={() => handleResponseChange(index, word.word)} // Use word.word for input
+              disabled={submittedPages.has(currentPage) && !isEditing}
+            >
+              {word.word} {/* Display word */}
+            </button>
+          ))}
+        </div>
+
         <div className="button-container">
           <button className="pagination-button" onClick={prevPage} disabled={currentPage === 0 || canNavigate}>前のページ (Previous)</button>
-          <button className="submit-button" onClick={handleSubmit} disabled={!allResponsesCorrect || submittedPages.has(currentPage)}>提出 (Submit)</button>
+          <button className="submit-button" onClick={handleSubmit} disabled={!allResponsesCorrect || submittedPages.has(currentPage)}>提出する (Submit)</button>
           <button className="pagination-button" onClick={nextPage} disabled={currentPage === totalPages - 1 || !allResponsesCorrect || !canNavigate}>次のページ (Next)</button>
           {submittedPages.has(currentPage) && (
             <button className="edit-button" onClick={toggleEdit}>{isEditing ? '編集完了 (Done Editing)' : '編集 (Edit)'}</button>
