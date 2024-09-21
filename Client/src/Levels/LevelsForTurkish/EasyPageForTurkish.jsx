@@ -94,6 +94,19 @@ const EasyPageForTurkish = () => {
           ))}
         </ul>
 
+        <div className="keyboard-options">
+          {currentWords.map((word, index) => (
+            <button
+              key={index}
+              className="keyboard-button"
+              onClick={() => handleResponseChange(index, word.word)} // Use word.word for input
+              disabled={submittedPages.has(currentPage) && !isEditing}
+            >
+              {word.word} {/* Display word */}
+            </button>
+          ))}
+        </div>
+
         <div className="button-container">
           <button className="pagination-button" onClick={prevPage} disabled={currentPage === 0 || canNavigate}>Önceki Sayfa (Previous)</button>
           <button className="submit-button" onClick={handleSubmit} disabled={!allResponsesCorrect || submittedPages.has(currentPage)}>Gönder (Submit)</button>

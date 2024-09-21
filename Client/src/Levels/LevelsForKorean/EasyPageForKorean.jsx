@@ -93,6 +93,19 @@ const EasyPageForKorean = () => {
           ))}
         </ul>
 
+        <div className="keyboard-options">
+          {currentWords.map((word, index) => (
+            <button
+              key={index}
+              className="keyboard-button"
+              onClick={() => handleResponseChange(index, word.word)} // Use word.word for input
+              disabled={submittedPages.has(currentPage) && !isEditing}
+            >
+              {word.word} ({word.pronunciation}) {/* Display character and pronunciation */}
+            </button>
+          ))}
+        </div>
+
         <div className="button-container">
           <button className="pagination-button" onClick={prevPage} disabled={currentPage === 0 || canNavigate}>이전 페이지 (Previous)</button>
           <button className="submit-button" onClick={handleSubmit} disabled={!allResponsesCorrect || submittedPages.has(currentPage)}>제출 (Submit)</button>
