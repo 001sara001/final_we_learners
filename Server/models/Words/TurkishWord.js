@@ -1,8 +1,8 @@
-// models/BanglaWord.js
+// models/TurkishWord.js
 
 import mongoose from "mongoose";
 
-const BanglaWordSchema = new mongoose.Schema({
+const TurkishWordSchema = new mongoose.Schema({
   word: {
     type: String,
     required: true,
@@ -18,6 +18,6 @@ const BanglaWordSchema = new mongoose.Schema({
   },
 });
 
-const BanglaWord = mongoose.model("BanglaWord", BanglaWordSchema);
+const TurkishWord = mongoose.model("TurkishWord", TurkishWordSchema);
 
-export default BanglaWord;
+export default TurkishWord;
