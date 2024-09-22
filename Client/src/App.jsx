@@ -22,6 +22,7 @@ import EasyPageForEnglish from "./Levels/LevelsForEnglish/EasyPageForEnglish";
 import EasyPageForTurkish from "./Levels/LevelsForTurkish/EasyPageForTurkish";
 import EasyPageForKorean from "./Levels/LevelsForKorean/EasyPageForKOrean";
 import EasyPageForJapanese from "./Levels/LevelsForJapanese/EasyPageForJapanese";
+import EasyPageForBengali from "./Levels/LevelsForBangla/EasyPageForBangla";
 const App = () => {
   return (
     <Router>
@@ -62,6 +63,7 @@ const Main = () => {
              <Route path="/easy-turkish-page" element={<EasyPageForTurkish />} />
              <Route path="/easy-japanese-page" element={<EasyPageForJapanese />} />
              <Route path="/easy-korean-page" element={<EasyPageForKorean/>} />
+             <Route path="/easy-bangla-page" element={<EasyPageForBengali/>} />
              {/* <Route path="/easy-page" element={<EasyPage />} />
              <Route path="/easy-page" element={<EasyPage />} />
              <Route path="/easy-page" element={<EasyPage />} /> */}

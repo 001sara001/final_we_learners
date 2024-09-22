@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import '../styles/LevelOfBangla/EasyPageForBangla.css'; // Update the CSS path
+import '../../styles/LevelOfBangla/EasyPageForBangla.css'; // Update the CSS path
 
 const EasyPageForBengali = () => {
   const [words, setWords] = useState([]);
@@ -63,7 +63,7 @@ const EasyPageForBengali = () => {
     newSubmittedPages.add(currentPage);
     setSubmittedPages(newSubmittedPages);
     localStorage.setItem('submittedPages', JSON.stringify([...newSubmittedPages]));
-    setIsEditing(false); // Disable editing after submission
+    setIsEditing(false);
   };
 
   const toggleEdit = () => {
@@ -75,14 +75,16 @@ const EasyPageForBengali = () => {
   return (
     <div className="easy-page-wrapper bengali">
       <div className="easy-page-container">
-        <h1 className="easy-page-heading">শিখতে হবে</h1>
+        <h1 className="easy-page-heading">শিখতে হবে (Words to Learn)</h1>
         <ul className="word-list">
           {currentWords.map((word, index) => (
             <li key={index} className="word-item">
-              <span className="word-text">{word.word}</span>
+              <span className="word-text">
+                {word.word} <span className="meaning"> (Meaning: {word.meaning}) </span> <span className="pronunciation"> [Pronunciation: {word.pronunciation}] </span>
+              </span>
               <textarea
                 className="response-textarea"
-                placeholder="এখানে লিখুন..."
+                placeholder="এখানে লিখুন... (Write here...)"
                 value={responses[currentPage * wordsPerPage + index] || ''}
                 onChange={(e) => handleResponseChange(index, e.target.value)}
                 disabled={submittedPages.has(currentPage) && !isEditing}
@@ -91,12 +93,25 @@ const EasyPageForBengali = () => {
           ))}
         </ul>
 
+        <div className="keyboard-options">
+          {currentWords.map((word, index) => (
+            <button
+              key={index}
+              className="keyboard-button"
+              onClick={() => handleResponseChange(index, word.word)} // Use word.word for input
+              disabled={submittedPages.has(currentPage) && !isEditing}
+            >
+              {word.word} ({word.pronunciation})
+            </button>
+          ))}
+        </div>
+
         <div className="button-container">
-          <button className="pagination-button" onClick={prevPage} disabled={currentPage === 0 || canNavigate}>Previous</button>
-          <button className="submit-button" onClick={handleSubmit} disabled={!allResponsesCorrect || submittedPages.has(currentPage)}>Submit</button>
-          <button className="pagination-button" onClick={nextPage} disabled={currentPage === totalPages - 1 || !allResponsesCorrect || !canNavigate}>Next</button>
+          <button className="pagination-button" onClick={prevPage} disabled={currentPage === 0 || canNavigate}>আগের পৃষ্ঠা (Previous)</button>
+          <button className="submit-button" onClick={handleSubmit} disabled={!allResponsesCorrect || submittedPages.has(currentPage)}>জমা দিন (Submit)</button>
+          <button className="pagination-button" onClick={nextPage} disabled={currentPage === totalPages - 1 || !allResponsesCorrect || !canNavigate}>পরবর্তী পৃষ্ঠা (Next)</button>
           {submittedPages.has(currentPage) && (
-            <button className="edit-button" onClick={toggleEdit}>{isEditing ? 'Done Editing' : 'Edit'}</button>
+            <button className="edit-button" onClick={toggleEdit}>{isEditing ? 'সম্পাদনা সম্পন্ন (Done Editing)' : 'সম্পাদনা (Edit)'}</button>
           )}
         </div>
       </div>

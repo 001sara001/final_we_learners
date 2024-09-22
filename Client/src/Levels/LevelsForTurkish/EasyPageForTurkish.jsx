@@ -99,7 +99,7 @@ const EasyPageForTurkish = () => {
             <button
               key={index}
               className="keyboard-button"
-              onClick={() => handleResponseChange(index, word.word)} // Use word.word for input
+              onClick={() => handleResponseChange(index, word.word)}
               disabled={submittedPages.has(currentPage) && !isEditing}
             >
               {word.word} {/* Display word */}
