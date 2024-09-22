@@ -9,7 +9,7 @@ import { addWord, getAllWords } from "./data/EnglishData.js";
 import { addKoreanWord, getAllKoreanWords } from "./data/KoreanData.js";
 import { addTurkishWord, getAllTurkishWords } from "./data/TurkishData.js";
 import { addJapaneseWord, getAllJapaneseWords } from "./data/JapaneseData.js"; 
-
+import { addBanglaWords, getAllBanglaWords } from "./data/BanglaDatas.js"; 
 // Middleware
 dotenv.config();
 const app = express();
@@ -82,7 +82,16 @@ app.get("/japanese-words", async (req, res) => {
     return res.status(500).json({ error: "Failed to fetch Japanese words" });
   }
 });
-
+app.post("/bangla-words", addBanglaWords);
+app.get("/bangla-words", async (req, res) => {
+  try {
+    const banglaWords = await getAllBanglaWords();
+    return res.status(200).json(banglaWords);
+  } catch (error) {
+    console.error("Error getting bangla words:", error);
+    return res.status(500).json({ error: "Failed to fetch bangla words" });
+  }
+});
 // Start the server
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);
