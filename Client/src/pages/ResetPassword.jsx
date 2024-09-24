@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { IoLockClosedOutline, IoCloseOutline } from "react-icons/io5";
+import { IoLockClosedOutline, IoCloseOutline ,IoEyeOffOutline} from "react-icons/io5";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom"; 
 import '../styles/forgotPassword.css';
@@ -9,6 +9,7 @@ export default function ResetPassword() {
   const { token } = useParams(); 
   console.log("Token from URL:", token);
   const [password, setPassword] = useState(''); 
+  const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
@@ -51,12 +52,18 @@ export default function ResetPassword() {
                 <IoLockClosedOutline />
               </span>
               <input
-                type="password" 
+                type={showPassword ? "text" : "password"} // Toggle between text and password
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
               <label>New Password</label>
+              <span
+                className="toggle-password-visibility" // Styling for the icon
+                onClick={() => setShowPassword(!showPassword)} // Toggle state on click
+              >
+                {showPassword ? <IoEyeOffOutline /> : <IoEyeOffOutline />}
+              </span>
             </div>
 
             <button type="submit" disabled={loading}>

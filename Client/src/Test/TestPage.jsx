@@ -17,12 +17,14 @@ export default function TestPage() {
           <li>5. Your result will be shown at the end of the quiz</li>
         </ol>
 
+        <div className='start mt-5'>
         <Link
               className="btn bg-blue-500 text-white px-6 py-2 rounded-full"
               to="/quiz/start"
             >
               Start
             </Link>
+
           {/* <h2 className='text-2xl mb-3'>Choose your Level:</h2>
           <div className='level-buttons'>
             <Link className='btn' to="/quiz/start?level=1">Level 1</Link>
@@ -33,6 +35,6 @@ export default function TestPage() {
           </div> */}
         </div>
       </div>
-    
+    </div>
   );
 }
