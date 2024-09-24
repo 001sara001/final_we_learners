@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import { useState } from "react";
 import { IoCloseOutline, IoMailOutline, IoLockClosedOutline } from "react-icons/io5";
 import "../styles/Login.css";
 import { useNavigate, Link } from "react-router-dom";
@@ -9,42 +9,32 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  // State to store user input
   const [data, setData] = useState({
-    email: '',   
+    email: '',
     password: '',
   });
 
-  // Function to handle form submission
   const loginUser = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setError(''); // Reset error message before new login attempt
+    setError('');
 
     try {
-      // Send login request to the backend
       const res = await axios.post("http://localhost:8000/auth/login", data);
+      const { token, user } = res.data;
 
-      // Extract token and user data from response
-      const { token, user } = res.data; // Ensure your backend sends user data
-
-      // Check if response status is 200 (successful login)
       if (res.status === 200 && token) {
-        // Save token and user data to local storage
         localStorage.setItem('token', token);
-        localStorage.setItem('userData', JSON.stringify(user)); // Save user data
-
-        // Navigate to the home page
-        navigate('/enroll-now');
+        localStorage.setItem('userData', JSON.stringify(user));
+        navigate('/');
       } else {
         throw new Error('Login failed. Please try again.');
       }
     } catch (e) {
-      // Capture and display the error message
       console.error('Login Error:', e.response?.data || e.message);
       setError(e.response?.data?.message || "Login failed. Please try again.");
     } finally {
-      setLoading(false); // Stop loading regardless of the outcome
+      setLoading(false);
     }
   };
 
@@ -54,7 +44,7 @@ export default function Login() {
         <div className="login-box" id="login-box">
           <form onSubmit={loginUser}>
             <h2>Log In</h2>
-            <span className="icon-close" id="login-close">
+            <span className="icon-close" onClick={() => navigate('/')}>
               <IoCloseOutline />
             </span>
 
@@ -92,7 +82,7 @@ export default function Login() {
                 <input type="checkbox" />
                 Remember me
               </label>
-              <a href="#">Forgot Password</a>
+              <Link to="/forgot-password">Forgot Password?</Link>
             </div>
 
             {/* Submit Button */}
@@ -106,7 +96,7 @@ export default function Login() {
             {/* Register Link */}
             <div className="register-link">
               <p>
-                Dont have an account? <Link to="/register">Register</Link>
+                Don’t have an account? <Link to="/register">Register</Link>
               </p>
             </div>
           </form>
