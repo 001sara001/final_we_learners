@@ -29,11 +29,8 @@ const EnrollNowForJapanese = () => {
       </p>
 
       <div className="enroll-now-for-japanese-options">
-        <button className={`enroll-now-for-japanese-button ${selectedLevel === 'Easy' ? 'selected' : ''}`} onClick={() => handleLevelChange('Easy')}>
-          易しい <span style={{ fontSize: 'small' }}>(Easy)</span>
-        </button>
-        <button className={`enroll-now-for-japanese-button ${selectedLevel === 'Medium' ? 'selected' : ''}`} onClick={() => handleLevelChange('Medium')}>
-          中間 <span style={{ fontSize: 'small' }}>(Medium)</span>
+        <button className={`enroll-now-for-japanese-button ${selectedLevel === 'Beginner' ? 'selected' : ''}`} onClick={() => handleLevelChange('Beginner')}>
+          初心者 <span style={{ fontSize: 'small' }}>(Beginner)</span>
         </button>
         <button className={`enroll-now-for-japanese-button ${selectedLevel === 'Advanced' ? 'selected' : ''}`} onClick={() => handleLevelChange('Advanced')}>
           上級 <span style={{ fontSize: 'small' }}>(Advanced)</span>

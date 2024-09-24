@@ -29,11 +29,8 @@ const EnrollNowForKorean = () => {
       </p>
 
       <div className="enroll-now-for-korean-options">
-        <button className={`enroll-now-for-korean-button ${selectedLevel === 'Easy' ? 'selected' : ''}`} onClick={() => handleLevelChange('Easy')}>
-          쉬운 <span style={{ fontSize: 'small' }}>(Easy)</span>
-        </button>
-        <button className={`enroll-now-for-korean-button ${selectedLevel === 'Medium' ? 'selected' : ''}`} onClick={() => handleLevelChange('Medium')}>
-          중간 <span style={{ fontSize: 'small' }}>(Medium)</span>
+        <button className={`enroll-now-for-korean-button ${selectedLevel === 'Beginner' ? 'selected' : ''}`} onClick={() => handleLevelChange('Beginner')}>
+          초급 <span style={{ fontSize: 'small' }}>(Beginner)</span>
         </button>
         <button className={`enroll-now-for-korean-button ${selectedLevel === 'Advanced' ? 'selected' : ''}`} onClick={() => handleLevelChange('Advanced')}>
           고급 <span style={{ fontSize: 'small' }}>(Advanced)</span>

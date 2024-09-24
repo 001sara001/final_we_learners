@@ -1,0 +1,149 @@
+/* AdvancedPageForEnglish.css */
+
+.advanced-page-for-english {
+    padding-top: 50px;
+    background: linear-gradient(to bottom, rgba(155, 103, 101, 0.9), rgba(185, 120, 76, 0.9));
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.advanced-page-for-english-container {
+    padding: 20px;
+    max-width: 500px;
+    width: 100%;
+    background: linear-gradient(to right, rgb(185, 120, 76), rgb(185, 120, 76), #9a6765);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px; /* Space at the bottom */
+}
+
+.advanced-page-for-english-heading {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #374151;
+}
+
+.word-list-for-english {
+    list-style-type: none;
+    padding: 0;
+    
+    flex-grow: 1; /* Allow it to take available space */
+    margin-bottom: 20px; /* Space between word list and buttons */
+}
+
+/* AdvancedPageForEnglish.css */
+
+.word-item-for-english {
+    margin-top: 50px;
+    margin-bottom: 20px; /* Space between items */
+    padding-bottom: 10px; /* Space below each word item */
+    border-bottom: 1px solid #ddd; /* Light border for separation */
+}
+
+.response-textarea-for-english {
+    width: 100%;
+    height: 60px; /* Smaller height for the textarea */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 15px; /* Increased space above textarea */
+    margin-bottom: 10px; /* Space below textarea */
+    resize: none; /* Prevent resizing */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+
+.word-text-for-english {
+    margin-top: 40px;
+    font-weight: bold;
+    font-size: 1.2rem; /* Slightly larger font */
+}
+
+.word-meaning-for-english,
+.word-sentence-for-english {
+    display: block; /* Ensures they are on their own line */
+    margin-top: 5px; /* Space above */
+    font-size: 0.9rem; /* Smaller font for meanings and sentences */
+    color: #555; /* Subtle color for meanings and sentences */
+}
+
+
+/* Set the scrollbar appearance */
+.response-textarea-for-english::-webkit-scrollbar {
+    margin-top: 10px;
+    width: 8px; /* Width of the scrollbar */
+}
+
+.response-textarea-for-english::-webkit-scrollbar-thumb {
+    background: #888; /* Color of the scrollbar thumb */
+    border-radius: 4px; /* Rounded corners */
+}
+
+.response-textarea-for-english::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Darker color on hover */
+}
+
+.button-container-for-english {
+   
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    flex-wrap: wrap; /* Wrap buttons on smaller screens */
+}
+
+.pagination-button-for-english,
+.submit-button-for-english,
+.edit-button-for-english {
+   
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 48%; /* Adjust width for mobile */
+    margin: 5px 0; /* Space between buttons */
+}
+
+.pagination-button-for-english {
+    margin-top: 10px;
+    background-color: #4A90E2; /* Blue for pagination */
+    color: white;
+}
+
+.submit-button-for-english {
+    margin-top: 60px;
+    background-color: #28a745; /* Green for submit */
+    color: white;
+}
+
+.edit-button-for-english {
+    background-color: #ff9800; /* Orange for edit */
+    color: black;
+}
+
+/* Media Queries for mobile responsiveness */
+@media (max-width: 600px) {
+    .advanced-page-for-english-heading {
+        font-size: 1.5rem; /* Smaller heading on mobile */
+    }
+
+    .response-textarea-for-english {
+        height: 80px; /* Larger textarea on mobile */
+    }
+
+    .button-container-for-english {
+        flex-direction: column; /* Stack buttons vertically on small screens */
+    }
+
+    .pagination-button-for-english,
+    .submit-button-for-english,
+    .edit-button-for-english {
+        width: 100%; /* Full width buttons on mobile */
+    }
+}
