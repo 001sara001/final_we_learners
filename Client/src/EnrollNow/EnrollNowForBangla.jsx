@@ -29,15 +29,10 @@ const EnrollNowForBangla = () => {
       </p>
 
       <div className="enroll-now-for-bangla-options">
-        <button className={`enroll-now-for-bangla-button ${selectedLevel === 'Easy' ? 'selected' : ''}`} onClick={() => handleLevelChange('Easy')}>
-          সহজ <span style={{ fontSize: 'small' }}>(Easy)</span>
+        <button className={`enroll-now-for-bangla-button ${selectedLevel === 'Beginner' ? 'selected' : ''}`} onClick={() => handleLevelChange('Beginner')}>
+          প্রাথমিক <span style={{ fontSize: 'small' }}>(Beginner)</span>
         </button>
-        <button className={`enroll-now-for-bangla-button ${selectedLevel === 'Medium' ? 'selected' : ''}`} onClick={() => handleLevelChange('Medium')}>
-          মধ্যম <span style={{ fontSize: 'small' }}>(Medium)</span>
-        </button>
-        <button className={`enroll-now-for-bangla-button ${selectedLevel === 'Advanced' ? 'selected' : ''}`} onClick={() => handleLevelChange('Advanced')}>
-          উন্নত <span style={{ fontSize: 'small' }}>(Advanced)</span>
-        </button>
+        
       </div>
 
       <div className="feedback-section">

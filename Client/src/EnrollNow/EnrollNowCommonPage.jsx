@@ -1,10 +1,22 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
-import '../styles/EnrollNowAllPages/EnrollNowCommonPage.css'; // Link your CSS file
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import '../styles/EnrollNowAllPages/EnrollNowCommonPage.css';
 
 const EnrollNow = () => {
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
   const [selectedLanguage, setSelectedLanguage] = useState("");
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    // Check if user data is available in local storage
+    const userData = localStorage.getItem('userData');
+    if (userData) {
+      setUser(JSON.parse(userData)); // Parse and set user data
+    } else {
+      // Redirect to login if user is not logged in
+      navigate('/login');
+    }
+  }, [navigate]);
 
   const handleChange = (e) => {
     setSelectedLanguage(e.target.value);
@@ -17,19 +29,19 @@ const EnrollNow = () => {
     // Redirect based on selected language
     switch (selectedLanguage) {
       case "english":
-        navigate("/enroll-now-for-english"); // English enrollment page route
+        navigate("/enroll-now-for-english");
         break;
       case "bangla":
-        navigate("/enroll-now-for-bangla"); // Bangla enrollment page route
+        navigate("/enroll-now-for-bangla");
         break;
       case "turkish":
-        navigate("/enroll-now-for-turkish"); // Turkish enrollment page route
+        navigate("/enroll-now-for-turkish");
         break;
       case "korean":
-        navigate("/enroll-now-for-korean"); // Korean enrollment page route
+        navigate("/enroll-now-for-korean");
         break;
       case "japanese":
-        navigate("/enroll-now-for-japanese"); // Japanese enrollment page route
+        navigate("/enroll-now-for-japanese");
         break;
       default:
         break;
@@ -40,6 +52,7 @@ const EnrollNow = () => {
     <div className="enroll-now-wrapper">
       <div className="enroll-now-container">
         <h1 className="enroll-now-heading">Enroll Now in Our Language Courses</h1>
+        {user && <p>Welcome, {user.name}!</p>} {/* Display user name if available */}
         <p className="enroll-now-description">
           Choose a language you would like to enroll in:
         </p>

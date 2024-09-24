@@ -18,11 +18,17 @@ import EnrollNowForBangla from "./EnrollNow/EnrollNowForBangla";
 import EnrollNowForJapanese from "./EnrollNow/EnrollNowForJapanese";
 import EnrollNowForTurkish from "./EnrollNow/EnrollNowForTurkish";
 import EnrollNowForKorean from "./EnrollNow/EnrollNowForKorean";
-import EasyPageForEnglish from "./Levels/LevelsForEnglish/EasyPageForEnglish";
-import EasyPageForTurkish from "./Levels/LevelsForTurkish/EasyPageForTurkish";
-import EasyPageForKorean from "./Levels/LevelsForKorean/EasyPageForKOrean";
-import EasyPageForJapanese from "./Levels/LevelsForJapanese/EasyPageForJapanese";
-import EasyPageForBengali from "./Levels/LevelsForBangla/EasyPageForBangla";
+import BeginnerPageForEnglish from "./Levels/LevelsForEnglish/BeginnerPageForEnglish";
+import BeginnerPageForBengali from "./Levels/LevelsForBangla/BeginnerPageForBangla";
+import AdvancedPageForEnglish from "./Levels/LevelsForEnglish/AdvancedPageForEnglish";
+import AdvancedPageForTurkish from "./Levels/LevelsForTurkish/AdvancedPageForTurkish";
+import BeginnerPageForJapanese from "./Levels/LevelsForJapanese/BeginnerPageForJapanese";
+import AdvancedPageForJapanese from "./Levels/LevelsForJapanese/AdvancedPageForJapanese";
+import BeginnerPageForTurkish from "./Levels/LevelsForTurkish/BeginnerPageForTurkish";
+import BeginnerPageForKorean from "./Levels/LevelsForKorean/BeginnerPageForKorean";
+import AdvancedPageForKorean from "./Levels/LevelsForKorean/AdvancedPageForKorean";
+import AdvancedPageForBangla from "./Levels/LevelsForBangla/AdvancedPageForBangla";
+import Review from "./components/Review";
 const App = () => {
   return (
     <Router>
@@ -59,16 +65,20 @@ const Main = () => {
             <Route path="/enroll-now-for-japanese" element={<EnrollNowForJapanese />} />
             <Route path="/enroll-now-for-turkish" element={<EnrollNowForTurkish />} />
              <Route path="/enroll-now-for-korean" element={<EnrollNowForKorean />} />
-             <Route path="/easy-page" element={<EasyPageForEnglish />} />
-             <Route path="/easy-turkish-page" element={<EasyPageForTurkish />} />
-             <Route path="/easy-japanese-page" element={<EasyPageForJapanese />} />
-             <Route path="/easy-korean-page" element={<EasyPageForKorean/>} />
-             <Route path="/easy-bangla-page" element={<EasyPageForBengali/>} />
-             {/* <Route path="/easy-page" element={<EasyPage />} />
-             <Route path="/easy-page" element={<EasyPage />} />
-             <Route path="/easy-page" element={<EasyPage />} /> */}
-             {/* <Route path="/medium-page" element={<MediumPage />} />
-             <Route path="/advanced-page" element={<AdvancedPage />} /> */}
+             {/* easy level page route */}
+             <Route path="/beginner-page" element={<BeginnerPageForEnglish />} />
+             <Route path="/beginner-japanese-page" element={<BeginnerPageForJapanese />} />
+             <Route path="/beginner-bangla-page" element={<BeginnerPageForBengali/>} />
+             <Route path="/beginner-turkish-page" element={<BeginnerPageForTurkish/>} />
+             <Route path="/beginner-korean-page" element={<BeginnerPageForKorean/>} />
+             {/* advanced page route */}
+             <Route path="/advanced-page" element={<AdvancedPageForEnglish/>} />
+             <Route path="/intermediate-turkish-page" element={<AdvancedPageForTurkish/>} />
+             <Route path="/advanced-japanese-page" element={<AdvancedPageForJapanese/>} />
+             <Route path="/advanced-korean-page" element={<AdvancedPageForKorean/>} />
+             <Route path="/advanced-bangla-page" element={<AdvancedPageForBangla/>} />
+             <Route path="/reviews" element={<Review/>} />
+            
         </Routes>
       </main>
       <Footer />
