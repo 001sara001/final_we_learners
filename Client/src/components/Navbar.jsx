@@ -10,18 +10,19 @@ const Navbar = () => {
   const [menu, setMenu] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [showProfile, setShowProfile] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
-    const savedMode = localStorage.getItem('darkMode') === 'true';
+    const savedMode = localStorage.getItem("darkMode") === "true";
     setDarkMode(savedMode);
-    document.body.classList.toggle('dark', savedMode);
+    document.body.classList.toggle("dark", savedMode);
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('darkMode', darkMode);
-    document.body.classList.toggle('dark', darkMode);
+    localStorage.setItem("darkMode", darkMode);
+    document.body.classList.toggle("dark", darkMode);
   }, [darkMode]);
 
   const handleNavLinkClick = () => {
@@ -42,26 +43,39 @@ const Navbar = () => {
     setDarkMode(!darkMode);
   };
 
-  const isLoggedIn = !!localStorage.getItem('token');
-  const userData = JSON.parse(localStorage.getItem('userData')) || {};
+  const isLoggedIn = !!localStorage.getItem("token");
+  const userData = JSON.parse(localStorage.getItem("userData")) || {};
   const profilePicture = userData.picture || defaultProfile;
 
   const logoutHandler = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('userData');
+    localStorage.removeItem("token");
+    localStorage.removeItem("userData");
+    setDropdownOpen(false); // Close the dropdown after logout
     navigate("/");
   };
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
+    setShowProfile(false); 
+  };
+
+  const toggleProfilePopup = () => {
+    setShowProfile(!showProfile);
+    setDropdownOpen(false); 
   };
 
   return (
     <div className="fixed w-full z-10">
       <div>
-        <div className={`flex flex-row justify-between p-5 lg:px-32 px-5 ${darkMode ? 'bg-gray-800' : 'bg-gradient-to-r from-backgroundColor to-brightColor'} shadow-[0_3px_10px_rgb(0,0,0,0.2)]`}>
+        <div
+          className={`flex flex-row justify-between p-5 lg:px-32 px-5 ${
+            darkMode ? "bg-gray-800" : "bg-gradient-to-r from-backgroundColor to-brightColor"
+          } shadow-[0_3px_10px_rgb(0,0,0,0.2)]`}
+        >
           <div className="flex flex-row items-center cursor-pointer gap-2">
-            <h1 className={`text-xl font-semibold ${darkMode ? 'text-white' : 'text-black'}`}>WeLearners</h1>
+            <h1 className={text-xl font-semibold ${darkMode ? "text-white" : "text-black"}}>
+              WeLearners
+            </h1>
           </div>
 
           <nav className="hidden md:flex flex-row items-center text-lg font-medium gap-8">
@@ -72,7 +86,9 @@ const Navbar = () => {
                 spy={true}
                 smooth={true}
                 duration={500}
-                className={`group relative inline-block cursor-pointer ${darkMode ? 'text-white hover:text-brightColor' : 'text-black hover:text-brightColor'}`}
+                className={`group relative inline-block cursor-pointer ${
+                  darkMode ? "text-white hover:text-brightColor" : "text-black hover:text-brightColor"
+                }`}
                 onClick={handleNavLinkClick}
               >
                 {element.item}
@@ -82,18 +98,50 @@ const Navbar = () => {
           </nav>
 
           <div className="flex items-center gap-4 relative">
-            <img
-              src={profilePicture}
-              alt="Profile"
-              className="w-8 h-8 rounded-full cursor-pointer"
-              onClick={toggleDropdown}
-            />
-            {dropdownOpen && (
-              <div className="absolute right-0 mt-2 bg-white rounded shadow-lg p-3">
-                <p className="font-semibold">{userData.name}</p>
-                <button onClick={logoutHandler} className="text-red-500">Logout</button>
-              </div>
+            {isLoggedIn && (
+              <>
+                <img
+                  src={profilePicture}
+                  alt="Profile"
+                  className="w-8 h-8 rounded-full cursor-pointer"
+                  onClick={toggleDropdown}
+                />
+                {dropdownOpen && (
+                  <div className="absolute right-0 mt-2 bg-white rounded shadow-lg p-3 z-20 w-48">
+                    <p
+                      className="font-semibold cursor-pointer"
+                      onClick={toggleProfilePopup}
+                    >
+                      {userData.name}
+                    </p>
+                    {/* Show Logout button only if the user is logged in */}
+                    <button onClick={logoutHandler} className="text-red-500">
+                      Logout
+                    </button>
+                  </div>
+                )}
+                {showProfile && (
+                  <div className="absolute right-0 mt-2 bg-white rounded shadow-lg p-5 z-30 w-48">
+                    <div className="flex flex-col items-center">
+                      <img
+                        src={profilePicture}
+                        alt="Profile"
+                        className="w-16 h-16 rounded-full mb-3"
+                      />
+                      <p className="font-semibold">{userData.name}</p>
+                      <p className="text-sm text-gray-600">{userData.email}</p>
+                      <button
+                        onClick={toggleProfilePopup}
+                        className="mt-3 text-blue-500"
+                      >
+                        Close
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </>
             )}
+
             <Button title={darkMode ? "Light Mode" : "Dark Mode"} onClick={toggleDarkMode} />
           </div>
 
@@ -108,7 +156,9 @@ const Navbar = () => {
         <div
           className={`${
             menu ? "translate-x-0" : "-translate-x-full"
-          } lg:hidden flex flex-col absolute ${darkMode ? 'bg-gray-800 text-white' : 'bg-black text-white'} left-0 top-16 font-semibold text-2xl text-center pt-8 pb-4 gap-8 w-full h-fit transition-transform duration-300`}
+          } lg:hidden flex flex-col absolute ${
+            darkMode ? "bg-gray-800 text-white" : "bg-black text-white"
+          } left-0 top-16 font-semibold text-2xl text-center pt-8 pb-4 gap-8 w-full h-fit transition-transform duration-300`}
         >
           <Link
             to="home"
