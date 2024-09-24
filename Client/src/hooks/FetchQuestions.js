@@ -1,9 +1,9 @@
-// fetch ques hook to api data and set value to store
 
 import { useEffect, useState } from "react"
-import data from "../Database/question_data"
+import data , {answers} from "../Database/question_data"
 import { useDispatch } from "react-redux"
 import *as Action from '../redux/ques_redx'
+import axios from "axios"
 
 export const useFetchQuestion = ()=>{
     const disptach = useDispatch()
@@ -16,19 +16,23 @@ export const useFetchQuestion = ()=>{
     )
     useEffect(()=>{
         setGetData(prev=>({...prev,isloading: true}));
-
-        //asnc function backend data
+        
+        
+        
          (async()=>{
             try{
-                let question = await data;
+                //const question = await data;
+                //asnc function backend data
+                const question = await getServerData(`http://localhost:8000/quiz/start`, (data) => data);
+
 
                 if(question.length>0)
                 {
                     setGetData(prev=>({...prev,isloading: false}));
-                    setGetData(prev=>({...prev,apiData: question}));
+                    setGetData(prev=>({...prev,apiData: {question,answers}}));
 
                     //dispatch ques
-                    disptach(Action.startExamAction(question))
+                    disptach(Action.startExamAction({question,answers}))
                 }else{
                     throw new Error("No question available");
                 }

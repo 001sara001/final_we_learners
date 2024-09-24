@@ -58,7 +58,7 @@ export default function Register() {
         <div className="Register-box" id="register-box">
           <form onSubmit={RegisterUser}>
             <h1>Register</h1>
-            <span className="icon-close" id="register-close">
+            <span className="icon-close" onClick={() => navigate('/')}>
               <IoCloseOutline />
             </span>
 
@@ -87,6 +87,7 @@ export default function Register() {
               />
               <label>Email</label>
             </div>
+
             <div className="input-box">
               <span className="icon">
                 <IoLockClosedOutline />
@@ -99,18 +100,21 @@ export default function Register() {
               />
               <label>Password</label>
             </div>
+
             <label htmlFor="">Profile Picture</label>
             <input type="file" onChange={handleFileInput} />
+
             <div className="remember-forgot">
               <label>
-                <input type="checkbox" />I agree to the terms & Conditions
+                <input type="checkbox" /> I agree to the terms & Conditions
               </label>
             </div>
+
             <button type="submit">Register</button>
             <div className="login-link">
               <p>
                 Already have an account?
-                <Link to="/login">LogIn</Link>
+                <Link to="/login"> LogIn</Link>
               </p>
             </div>
           </form>

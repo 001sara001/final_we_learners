@@ -1,6 +1,7 @@
 import React, { useEffect , useState } from 'react'
 import "../styles/Quiz.css"
 //import data from '../Database/question_data'
+import { useNavigate } from 'react-router-dom';
 
 // redux store import
 import {useSelector , useDispatch} from 'react-redux'
@@ -8,17 +9,21 @@ import {PushAnswer} from '../hooks/setResult'
 
 // custom hoook
 import { useFetchQuestion , moveNextQuestion ,movePrevQuestion } from '../hooks/FetchQuestions'
+import { updateResultAction } from '../redux/res_redx';
 
 export default function  Quiz() {
     const [checked,setChechked]= useState(undefined);
     const [ { isloading,apiData,serverError}] =useFetchQuestion()
     //const question = data[0]
+    const navigate = useNavigate();
 
     const disptch = useDispatch()
     const {trace, queue} = useSelector(state=>state.questions);
-    const state = useSelector(state=>state)
+    const result = useSelector(state=>state.result.result)
     useEffect(()=>{
-        console.log(state)
+        //console.log(result)
+        console.log({trace, checked})
+       disptch(updateResultAction(trace, checked))
     })
     useEffect(()=>{
       // console.log(isloading)
@@ -29,6 +34,8 @@ export default function  Quiz() {
     })
     function  onSelect(i){
         console.log(i)
+        setChechked(i);
+        
     }
 
     const questions=  useSelector(state => state.questions.queue[state.questions.trace] )
@@ -37,6 +44,7 @@ export default function  Quiz() {
     useEffect(()=>{
         console.log(questions)
     })
+   
     // prev btn handle
     function onPrev(){
         console.log('On onPrev click')
@@ -52,10 +60,25 @@ export default function  Quiz() {
         {
              // update to next question
              disptch(moveNextQuestion());
-             disptch(PushAnswer(1))
+             if(result.length <= trace)
+             {
+                disptch(PushAnswer(checked));
+             }
+             
         }
+        else{
+            disptch(PushAnswer(checked))
+        }
+         // Reset the checked value
+         setChechked(undefined);
+        
        
     }
+    function onSubmit() {
+        disptch(PushAnswer(checked));
+        navigate('/result'); 
+      }
+
     if(isloading) return <h3 className='text-light'>isloading</h3>
     if(serverError) return <h3 className='text-light'>[serverError|| "unknown error"]</h3>
   return (
@@ -78,7 +101,7 @@ export default function  Quiz() {
                             onChange={()=> onSelect(i)} 
                             />
                             <label className='text' htmlFor={`q${i}-option`}>{q}</label>
-                            <div className='check'></div>
+                            <div className={`check ${result[trace]=== i ? 'check': ''}`}></div>
                         </li>
                     ))
                }
@@ -87,9 +110,19 @@ export default function  Quiz() {
 
             </div>
             <div className='grid'>
-                <button className='btn prev'onClick={onPrev}>prev</button>
-                <button className='btn next' onClick={onNext}>Next</button>
-
+              
+            {trace > 0 && (
+                        <button className='btn prev' onClick={onPrev}>Prev</button>
+                    )}                 {trace < queue.length - 1 ? (
+            <button className="btn next" onClick={onNext}>
+              Next
+            </button>
+          ) : (
+          
+            <button className="btn submit" onClick={onSubmit}>
+              Submit
+            </button>
+          )}
             </div>
     </div>
     </div>

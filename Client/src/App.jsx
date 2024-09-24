@@ -10,8 +10,12 @@ import EnrollNow from "./pages/EnrollNow";
 import WelcomePage from "./pages/WelcomePage";
 import MenuCard from "./layouts/MenuCard";
 import LearnMore from "./LearnMore/LearnMore";
-import Quiz from "./Test/Quiz";
+import Quiz from "./Test/Quiz"
 import Result from "./Test/Result";
+import BanglaQuiz from "./Test/BanglaTest";
+import ForgotPassword from "./pages/ForgotPasswrod";
+import ResetPassword from "./pages/ResetPassword";
+
 
 const App = () => {
   return (
@@ -34,9 +38,15 @@ const Main = () => {
         <Routes>
           <Route element={<HomePage />} path="/" />
           <Route element={<Login />} path="/login" />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/reset-password/:token" element={<ResetPassword />} />
           <Route element={<Register />} path="/register" />
-          <Route element={<TestPage />} path="/quiz" />
+          <Route element={<TestPage />} path="/quiz/english" />
           <Route element={<Quiz />} path="/quiz/start" />
+          <Route element={<BanglaQuiz />} path="quiz/bangla" />
+          <Route element={<BanglaQuiz />} path="quiz/japanese" />
+          <Route element={<BanglaQuiz />} path="quiz/turkish" />
+          <Route element={<BanglaQuiz />} path="quiz/korean" />
           <Route element={<Result />} path="/result" />
           <Route path="/MenuCard" element={<MenuCard />} />
           <Route element={<EnrollNow />} path="/enroll-now" />
