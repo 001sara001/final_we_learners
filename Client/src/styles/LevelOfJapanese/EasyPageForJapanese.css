@@ -1,0 +1,113 @@
+/* styles/EasyPageForJapanese.css */
+
+/* General Page Styles */
+.easy-page-wrapper {
+    min-height: 100vh;
+    background: linear-gradient(to right, rgb(185, 120, 76), rgb(185, 120, 76), #9a6765);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.easy-page-heading {
+    font-size: 2.5rem; /* 4xl */
+    font-weight: bold;
+    color: #004d40; /* Teal 800 */
+    text-align: center;
+}
+
+.easy-page-container {
+    width: 100%;
+    max-width: 800px; /* Adjust as necessary */
+}
+
+/* Word List */
+.word-list {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+.word-item {
+    margin-bottom: 15px;
+}
+
+/* Response Textarea */
+.response-textarea {
+    width: 100%;
+    height: 60px;
+    margin-top: 10px;
+    padding: 1rem; /* p-4 */
+    border-radius: 0.5rem; /* rounded-md */
+    border: 1px solid #7a4018; /* Teal 800 */
+    resize: none;
+    font-size: 1rem; /* text-base */
+    color: #374151; /* Gray 800 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-md */
+    transition: border-color 0.3s ease;
+}
+
+.response-textarea:focus {
+    border-color: #00796b; /* Teal 700 */
+    outline: none;
+}
+
+/* Keyboard Options */
+.keyboard-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.keyboard-button {
+    background-color: #7a4018; /* Button background */
+    color: #ffffff; /* White */
+    border: none;
+    border-radius: 0.5rem; /* rounded-md */
+    padding: 1rem 1.5rem; /* py-4 px-6 */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.keyboard-button:hover {
+    background-color: #bc7542; /* Teal 900 */
+    transform: scale(1.05); /* scale-105 */
+}
+
+/* Button Container */
+.button-container {
+    margin-top: 20px;
+}
+
+.pagination-button,
+.submit-button,
+.edit-button {
+    margin-right: 10px;
+}
+
+/* Submit Button */
+.submit-button {
+    background-color: #7a4018; /* Teal 600 */
+    color: #ffffff; /* White */
+    padding: 1rem 2rem; /* py-4 px-6 */
+    border-radius: 0.5rem; /* rounded-md */
+    border: none;
+    cursor: pointer;
+    font-size: 1.125rem; /* text-lg */
+    font-weight: 600; /* font-semibold */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #bc7542; /* Teal 700 */
+    transform: scale(1.05); /* scale-105 */
+}
+
+.submit-button:disabled {
+    background-color: #3b291d; /* Disabled Teal 300 */
+    cursor: not-allowed;
+}

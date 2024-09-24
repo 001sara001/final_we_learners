@@ -1,0 +1,21 @@
+.keyboard-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+  
+  .keyboard-button {
+    background-color: #7a4018; /* Button background */
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .keyboard-button:hover {
+    background-color: #bc7542; /* Hover effect */
+  }
+  

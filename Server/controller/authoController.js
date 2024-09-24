@@ -123,6 +123,4 @@ export default {
     registerUser,
     loginUser, 
     forgotPassword,
-};
-
-
+}
