@@ -1,24 +1,33 @@
-// quizcontroller.js
-import Question from '../models/questions.js';
-import Result from '../models/result.js';
-
-// Get all questions
+import Question from '../models/questions.js'; 
+import Result from '../models/result.js'
+// Get questions based on language
 export const getQuestions = async (req, res) => {
+    
     try {
-        const questions = await Question.find(); // Fetch all questions
-        if (!questions.length) {
-            return res.status(404).json({ message: "No questions found" });
-        }
-        res.json(questions); // Return all questions
+        const questions = await Question.find();
+        res.json(questions);
     } catch (error) {
-        console.error("Error retrieving questions:", error);
-        res.status(500).json({ message: "Failed to retrieve questions", error: error.message });
+        res.status(500).json({ message: "Failed to retrieve questions", error });
     }
 };
+// level
+// export const QuizLevel = async (req, res) => {
+//     const { level } = req.params;
+//     try {
+//         const questions = await Question.find({ level });
+//         if (!questions.length) {
+//             return res.status(404).json({ message: "No questions found for this level" });
+//         }
+//         res.json(questions);
+//     } catch (error) {
+//         res.status(500).json({ message: "Failed to retrieve questions", error });
+//     }
+// };
+
 
 // Add a new question
 export const addQuestion = async (req, res) => {
-    const { language, question, options, correctAnswer } = req.body;
+    const { language, question, options, correctAnswer } = req.body; 
     if (!language || !question || !options || !correctAnswer) {
         return res.status(400).json({ message: "All fields are required" });
     }
@@ -31,7 +40,6 @@ export const addQuestion = async (req, res) => {
         res.status(500).json({ message: "Failed to add question", error });
     }
 };
-
 // Get all results
 export const getResult = async (req, res) => {
     try {
@@ -45,7 +53,7 @@ export const getResult = async (req, res) => {
 // Store result
 export const storeResult = async (req, res) => {
     try {
-        const { result, attempts, points, achieved } = req.body;
+        const { result, attempts, points, achieved } = req.body; // Corrected spelling of 'achieved'
         if (!result || !attempts) {
             return res.status(400).json({ message: 'Data Not Provided...!' });
         }
@@ -71,6 +79,7 @@ export const dropResult = async (req, res) => {
 export default {
     addQuestion,
     getQuestions,
+
     getResult,
     storeResult,
     dropResult
