@@ -117,10 +117,44 @@ export const forgotPassword = async (req, res) => {
     }
   };
   
+  //reset password
+ 
+export const resetPassword = async (req, res) => {
+  const { token } = req.params; 
+  const { password } = req.body;
+
+  try {
+    // Find the user with the reset token and check if the token has expired
+    const user = await User.findOne({
+      resetToken: token,
+      tokenExpiration: { $gt: Date.now() } // Token expiration check
+    });
+
+    if (!user) {
+      return res.status(400).json({ message: "Invalid or expired reset token." });
+    }
+
+    // Hash the new password
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // Update the user's password and clear the reset token fields
+    user.password = hashedPassword;
+    user.resetToken = undefined;
+    user.tokenExpiration = undefined;
+
+    await user.save();
+    res.status(200).json({ message: "Password successfully updated." });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Something went wrong. Please try again." });
+  }
+};
+
 
 export default {
     test,
     registerUser,
     loginUser, 
     forgotPassword,
+    resetPassword
 }
