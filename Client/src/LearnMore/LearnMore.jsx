@@ -1,10 +1,9 @@
-import React from "react";
+
 import { useNavigate } from "react-router";
-import Image1 from "../assets/img/pic1.png";
-import Image2 from "../assets/img/pic2.png";
-import Image3 from "../assets/img/pic3.png";
+import Image1 from "../assets/img/home.png";
 import Button from "../layouts/Button";
-import '../styles/LearnMore.css';  // Import the CSS file
+import '../styles/LearnMore.css'; 
+
 
 const LearnMore = () => {
   const navigate = useNavigate();
@@ -18,7 +17,7 @@ const LearnMore = () => {
       <section className="learn-more-section">
         {/* Features Section */}
         <div className="section-item lg:flex-row">
-          <div className="w-full lg:w-1/2">
+          <div className="w-full lg:w-1">
             <img
               className="section-image"
               src={Image1}
@@ -30,7 +29,7 @@ const LearnMore = () => {
             <p className="section-text1">
               Our platform offers a range of features to make your language learning journey effective and enjoyable:
             </p>
-            <ul className="section-list1">
+            <ul className="section-list">
               <li>Interactive lessons with real-life scenarios.</li>
               <li>Personalized learning paths based on your goals.</li>
               <li>Progress tracking to visualize your achievements.</li>
@@ -59,17 +58,17 @@ const LearnMore = () => {
               <li>Regular updates and new features to enhance your learning experience.</li>
               <li>Completely free and accessible to everyone with an email.</li>
             </ul>
-            <Button
+            {/* <Button
               className="learn-more-button"
               title="Learn More"
               onClick={() => navigate("/features")}
-            />
+            /> */}
           </div>
           <div className="w-full lg:w-1/2">
             <img
               className="section-image"
-              src={Image1}
-              alt="Benefits"
+              // src={Image1}
+              // alt="Benefits"
             />
           </div>
         </div>
@@ -79,8 +78,8 @@ const LearnMore = () => {
           <div className="w-full lg:w-1/2">
             <img
               className="section-image"
-              src={Image2}
-              alt="Testimonials"
+              // src={Image2}
+              // alt="Testimonials"
             />
           </div>
           <div className="w-full lg:w-1/2 section-content">
@@ -96,8 +95,8 @@ const LearnMore = () => {
             </blockquote>
             <Button
               className="learn-more-button"
-              title="Read More Testimonials"
-              onClick={() => navigate("/testimonials")}
+              title="Read More Reviews"
+              onClick={() => navigate("/reviews")}
             />
           </div>
         </div>
@@ -107,8 +106,8 @@ const LearnMore = () => {
           <div className="w-full lg:w-1/2">
             <img
               className="section-image"
-              src={Image3}
-              alt="Contact"
+              // src={Image3}
+              // alt="Contact"
             />
           </div>
           <div className="w-full lg:w-1/2 section-content">

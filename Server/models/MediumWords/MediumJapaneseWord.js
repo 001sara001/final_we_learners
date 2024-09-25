@@ -1,0 +1,27 @@
+// models/MediumJapaneseWord.js
+
+import mongoose from "mongoose";
+
+const MediumJapaneseWordSchema = new mongoose.Schema({
+  word: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  meaning: {
+    type: String,
+    required: true,
+  },
+  pronunciation: {
+    type: String,
+    required: true,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+});
+
+const MediumJapaneseWord = mongoose.model("MediumJapaneseWord", MediumJapaneseWordSchema);
+
+export default MediumJapaneseWord;

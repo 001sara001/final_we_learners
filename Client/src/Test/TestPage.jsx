@@ -18,21 +18,11 @@ export default function TestPage() {
         </ol>
 
         <div className='start mt-5'>
-        <Link
-              className="btn bg-blue-500 text-white px-6 py-2 rounded-full"
-              to="/quiz/start"
-            >
-              Start
-            </Link>
-
-          {/* <h2 className='text-2xl mb-3'>Choose your Level:</h2>
+          <h2 className='text-2xl mb-3'>Take Test:</h2>
           <div className='level-buttons'>
-            <Link className='btn' to="/quiz/start?level=1">Level 1</Link>
-            <Link className='btn' to="/quiz/start?level=2">Level 2</Link>
-            <Link className='btn' to="/quiz/start?level=3">Level 3</Link>
-            <Link className='btn' to="/quiz/start?level=4">Level 4</Link>
-            <Link className='btn' to="/quiz/start?level=5">Level 5</Link>
-          </div> */}
+            <Link className='btn' to="/quiz/start">Start</Link>
+          
+          </div>
         </div>
       </div>
     </div>

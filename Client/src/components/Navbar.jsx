@@ -73,7 +73,7 @@ const Navbar = () => {
           } shadow-[0_3px_10px_rgb(0,0,0,0.2)]`}
         >
           <div className="flex flex-row items-center cursor-pointer gap-2">
-            <h1 className={`text-xl font-semibold ${darkMode ? "text-white" : "text-black"}`}>
+            <h1 className={text-xl font-semibold ${darkMode ? "text-white" : "text-black"}}>
               WeLearners
             </h1>
           </div>
