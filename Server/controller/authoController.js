@@ -157,6 +157,4 @@ export default {
     loginUser, 
     forgotPassword,
     resetPassword
-};
-
-
+}

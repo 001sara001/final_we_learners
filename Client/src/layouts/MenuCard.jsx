@@ -16,7 +16,7 @@ const MenuCard = (props) => {
         </div>
         <div className="flex flex-row justify-between mt-3">
         <div className="button-container">
-        <Button title="Enroll Now" onClick={() => navigate("/enroll-now")} />
+        <Button title="Enroll Now" onClick={() => navigate("/register")} />
           </div>
         </div>
       </div>

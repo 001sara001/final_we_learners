@@ -1,0 +1,22 @@
+.thank-you-container {
+    min-height: 100vh; /* Full height */
+    background: linear-gradient(to right, rgb(185, 120, 76), rgb(185, 120, 76), #9a6765);
+    padding: 2rem; /* Some padding */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #374151; /* Text color */
+  }
+  
+  .thank-you-heading {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .thank-you-message {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  

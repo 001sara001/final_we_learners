@@ -1,0 +1,150 @@
+/* Beginner Page Wrapper */
+.beginner-page-wrapper-for-japanese {
+    padding-top: 50px; /* Space from the top */
+    background: linear-gradient(to bottom, rgba(155, 103, 101, 0.9), rgba(185, 120, 76, 0.9));
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.beginner-page-container-for-japanese {
+    padding: 20px; /* Space inside the container */
+    max-width: 500px; /* Limit container width */
+    width: 90%; /* Set width to 90% for better responsiveness */
+    height: auto; /* Auto height for flexibility */
+    background: linear-gradient(to right, rgb(185, 120, 76), rgb(185, 120, 76), #9a6765);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px; /* Space at the bottom */
+}
+
+.beginner-page-heading-for-japanese {
+    font-size: 2rem; /* Font size for heading */
+    text-align: center;
+    margin-bottom: 20px;
+    color: #374151; /* Text color */
+}
+
+.word-list-for-japanese {
+    list-style-type: none;
+    padding: 0;
+    flex-grow: 1; /* Allow it to take available space */
+}
+
+.word-item-for-japanese {
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.word-text-for-japanese {
+    font-weight: bold;
+}
+
+.response-textarea-for-japanese {
+    width: 100%;
+    height: 60px; /* Fixed height for better mobile experience */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 10px; /* Space above textarea */
+}
+
+.button-container-for-japanese {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically on mobile */
+    margin-top: 20px;
+}
+
+.pagination-button-for-japanese,
+.submit-button-for-japanese,
+.edit-button-for-japanese {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%; /* Full width for buttons */
+    margin-bottom: 10px; /* Space between buttons */
+}
+
+.pagination-button-for-japanese {
+    background-color: #4A90E2; /* Pagination button color */
+    color: white;
+}
+
+.submit-button-for-japanese {
+    background-color: #28a745; /* Submit button color */
+    color: white;
+}
+
+.edit-button-for-japanese {
+    background-color: #ff9800; /* Edit button color */
+    color: black;
+}
+
+.pagination-button-for-japanese:disabled,
+.submit-button-for-japanese:disabled,
+.edit-button-for-japanese:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+}
+
+/* Media queries for better mobile experience */
+@media (min-width: 600px) {
+    .button-container-for-japanese {
+        flex-direction: row; /* Stack buttons horizontally on larger screens */
+    }
+
+    .pagination-button-for-japanese,
+    .submit-button-for-japanese,
+    .edit-button-for-japanese {
+        width: auto; /* Allow buttons to have their own width */
+        margin: 0 5px; /* Space between buttons */
+    }
+}
+
+/* Pronunciation Input */
+.pronunciation-input {
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding for input */
+    margin-top: 10px; /* Space above input */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Keyboard Options Container */
+.keyboard-options-for-japanese {
+    display: flex;
+    flex-wrap: wrap; /* Allow buttons to wrap to the next line */
+    justify-content: center; /* Center buttons */
+    margin-top: 20px; /* Space above keyboard options */
+}
+
+/* Individual Keyboard Button */
+.keyboard-button-for-japanese {
+    background-color: #4a90e2; /* Button background color */
+    color: white; /* Text color */
+    border: none; /* Remove default border */
+    border-radius: 4px; /* Rounded corners */
+    padding: 10px 15px; /* Padding inside the button */
+    margin: 5px; /* Space between buttons */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Font size */
+    transition: background-color 0.3s; /* Smooth background color transition */
+    flex: 1 0 45%; /* Allow two buttons per row on larger screens */
+}
+
+/* Hover Effect */
+.keyboard-button-for-japanese:hover {
+    background-color: #357ab8; /* Darker shade on hover */
+}
+
+/* Disabled Button Style */
+.keyboard-button-for-japanese:disabled {
+    background-color: #ccc; /* Grey background for disabled state */
+    cursor: not-allowed; /* Not-allowed cursor */
+}

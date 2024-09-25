@@ -1,0 +1,101 @@
+/* styles/EnrollNow.css */
+
+/* General Page Styles */
+.enroll-now-container {
+    min-height: 100vh;
+    background: linear-gradient(to right, rgb(185, 120, 76), rgb(185, 120, 76), #9a6765);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+  
+.enroll-now-heading {
+    font-size: 2.5rem; /* Heading size */
+    font-weight: bold;
+    color: #004d40; /* Teal 800 */
+    text-align: center;
+}
+  
+.enroll-now-description {
+    font-size: 1.125rem; /* Description size */
+    color: #374151; /* Gray 800 */
+    text-align: center;
+    margin-bottom: 2rem; /* Space below description */
+}
+  
+/* Button Options */
+.enroll-now-options {
+    display: flex;
+    gap: 1rem; /* Space between buttons */
+}
+  
+.enroll-now-button {
+    background-color: #7a4018; /* Button color */
+    color: #ffffff; /* White */
+    padding: 1rem 2rem; /* Padding */
+    border-radius: 0.5rem; /* Rounded corners */
+    border: none;
+    cursor: pointer;
+    font-size: 1rem; /* Base font size */
+    font-weight: 500; /* Medium font weight */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transition effects */
+}
+  
+.enroll-now-button:hover {
+    background-color: #bc7542; /* Hover color */
+    transform: scale(1.05); /* Scale effect on hover */
+}
+  
+.enroll-now-button.selected {
+    background-color: #341f10; /* Selected button color */
+}
+  
+/* Feedback Section */
+.feedback-section {
+    width: 100%;
+    max-width: 500px; /* Max width for feedback section */
+}
+  
+.feedback-textarea {
+    width: 100%;
+    height: 100px;
+    padding: 1rem; /* Padding */
+    border-radius: 0.5rem; /* Rounded corners */
+    border: 1px solid #7a4018; /* Border color */
+    resize: none;
+    font-size: 1rem; /* Base font size */
+    color: #374151; /* Gray 800 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    transition: border-color 0.3s ease; /* Transition for border color */
+}
+  
+.feedback-textarea:focus {
+    border-color: #00796b; /* Focus border color */
+    outline: none; /* Remove outline */
+}
+  
+/* Submit Button */
+.submit-button {
+    background-color: #7a4018; /* Button color */
+    color: #ffffff; /* White */
+    padding: 1rem 2rem; /* Padding */
+    border-radius: 0.5rem; /* Rounded corners */
+    border: none;
+    cursor: pointer;
+    font-size: 1.125rem; /* Text size */
+    font-weight: 600; /* Semi-bold */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transition effects */
+}
+  
+.submit-button:hover {
+    background-color: #bc7542; /* Hover color */
+    transform: scale(1.05); /* Scale effect on hover */
+}
+  
+.submit-button:disabled {
+    background-color: #3b291d; /* Disabled color */
+    cursor: not-allowed; /* Not-allowed cursor */
+}
