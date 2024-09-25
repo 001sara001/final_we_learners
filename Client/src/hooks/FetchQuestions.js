@@ -20,7 +20,7 @@ export const useFetchQuestion = () => {
         //const question = await data;
         //asnc function backend data
         const question = await getServerData(
-          `http://localhost:8000/auth/quiz/start`,
+          http://localhost:8000/auth/quiz/start,
           (data) => data
         );
 

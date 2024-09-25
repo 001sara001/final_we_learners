@@ -79,7 +79,7 @@ export const dropResult = async (req, res) => {
 export default {
     addQuestion,
     getQuestions,
-    QuizLevel,
+
     getResult,
     storeResult,
     dropResult
